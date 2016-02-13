@@ -8,8 +8,8 @@
  */
 angular.module("jodomxApp")
     .controller("PlayCtrl",
-        ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
-        function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
+    ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
+    function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
 
         $scope.player1 = $sessionStorage.player1;
         $scope.player2 = $sessionStorage.player2;
@@ -24,13 +24,17 @@ angular.module("jodomxApp")
         $scope.player1Counter = $sessionStorage.player1Counter;
         $scope.player2Counter = $sessionStorage.player2Counter;
 
+        var validate = function() {
+            return $scope.synonyms.indexOf($scope.wort) >= 0 && $scope.used.indexOf($scope.wort) < 0;
+        };
+
         $scope.play = function() {
             $scope.loading = true;
             OpenThesaurus.getSynonyms($scope.startwort).then(
                 function successCallback(synonyms) {
                     $scope.loading = false;
                     $scope.synonyms = synonyms;
-                    if ($scope.synonyms.indexOf($scope.wort) >= 0 && $scope.used.indexOf($scope.wort) < 0) {
+                    if (validate()) {
                         $scope.result = true;
                         if ($scope.player === $scope.player1) {
                             $scope.player1Counter += 10;

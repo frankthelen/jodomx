@@ -8,8 +8,8 @@
  */
 angular.module("jodomxApp")
     .controller("StartWortCtrl",
-        ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
-        function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
+    ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
+    function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
 
         $scope.player1 = $sessionStorage.player1;
         $scope.player2 = $sessionStorage.player2;
