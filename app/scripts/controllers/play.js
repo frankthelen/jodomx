@@ -25,8 +25,10 @@ angular.module("johannaApp")
         $scope.player2Counter = $sessionStorage.player2Counter;
 
         $scope.play = function() {
+            $scope.loading = true;
             OpenThesaurus.getSynonyms($scope.startwort).then(
                 function successCallback(synonyms) {
+                    $scope.loading = false;
                     $scope.synonyms = synonyms;
                     if ($scope.synonyms.indexOf($scope.wort) >= 0 && $scope.used.indexOf($scope.wort) < 0) {
                         $scope.result = true;
@@ -43,6 +45,7 @@ angular.module("johannaApp")
                         $scope.result = false;
                     }
                 }, function errorCallback(error) {
+                    $scope.loading = false;
                     $log.error(error);
                     // TODO: handle error
                 }

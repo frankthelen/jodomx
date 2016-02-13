@@ -19,7 +19,9 @@
             Bitte wähle ein anderes Wort.
         </div>
         <div class="text-right section">
-            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid" ng-click="start()">Weiter</button>
+            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid || loading" ng-click="start()">
+                Weiter
+            </button>
         </div>
     </form>
 

@@ -39,8 +39,12 @@
             </div>
         </div>
         <div class="text-right section">
-            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid" ng-click="play()" ng-show="result===undefined||result===true">Weiter</button>
-            <button type="submit" class="btn btn-primary btn-lg" ng-click="replay()" ng-show="result===false">Nächste Runde</button>
+            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid || loading" ng-click="play()" ng-show="result===undefined || result===true">
+                Weiter
+            </button>
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="replay()" ng-show="result===false">
+                Nächste Runde
+            </button>
         </div>
     </form>
 
