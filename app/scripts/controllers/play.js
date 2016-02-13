@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name johannaApp.controller:PlayCtrl
+ * @name jodomxApp.controller:PlayCtrl
  * @description
- * Controller of the johannaApp
+ * Controller of the jodomxApp
  */
-angular.module("johannaApp")
+angular.module("jodomxApp")
     .controller("PlayCtrl",
         ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
         function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
@@ -43,6 +43,11 @@ angular.module("johannaApp")
                         $scope.wort = "";
                     } else {
                         $scope.result = false;
+                        if ($scope.player === $scope.player1) {
+                            $scope.player2Counter += 15;
+                        } else {
+                            $scope.player1Counter += 15;
+                        }
                     }
                 }, function errorCallback(error) {
                     $scope.loading = false;

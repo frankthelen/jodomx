@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name johannaApp.controller:StartWortCtrl
+ * @name jodomxApp.controller:StartWortCtrl
  * @description
- * Controller of the johannaApp
+ * Controller of the jodomxApp
  */
-angular.module("johannaApp")
+angular.module("jodomxApp")
     .controller("StartWortCtrl",
         ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
         function($scope, $log, $location, $sessionStorage, OpenThesaurus) {

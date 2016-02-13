@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name johannaApp
+ * @name jodomxApp
  * @description
- * # johannaApp
+ * # jodomxApp
  *
  * Main module of the application.
  */
 angular
-  .module("johannaApp", [
+  .module("jodomxApp", [
     "ngAnimate",
     "ngRoute",
     "ngTouch",

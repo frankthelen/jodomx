@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name johannaApp.controller:StartCtrl
+ * @name jodomxApp.controller:StartCtrl
  * @description
- * Controller of the johannaApp
+ * Controller of the jodomxApp
  */
-angular.module("johannaApp")
+angular.module("jodomxApp")
     .controller("StartCtrl",
         ["$scope", "$rootScope", "$location", "$sessionStorage",
         function($scope, $rootScope, $location, $sessionStorage) {

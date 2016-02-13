@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name johannaApp.controller:OpenThesaurus
+ * @name jodomxApp.controller:OpenThesaurus
  * @description
- * Controller of the johannaApp
+ * Controller of the jodomxApp
  */
-angular.module("johannaApp")
+angular.module("jodomxApp")
     .service("OpenThesaurus", ["$http", "$q", function($http, $q) {
 
         this.getSynonyms = function(wort) {
