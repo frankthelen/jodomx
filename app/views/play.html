@@ -1,16 +1,6 @@
 <div>
 
-    <div class="counter">
-        <span class="player player1">
-            <small>{{player1}}</small>
-            <big>{{player1Counter}}</big>
-        </span>
-        <span>:</span>
-        <span class="player player2">
-            <big>{{player2Counter}}</big>
-            <small>{{player2}}</small>
-        </span>
-    </div>
+    <div ng-include="'views/counter.html'"></div>
 
     <p>
         <span class="current-player">{{player}}</span>, du bist dran.

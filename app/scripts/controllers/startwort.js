@@ -20,6 +20,9 @@ angular.module("jodomxApp")
 
         $sessionStorage.startplayer = $scope.startplayer;
 
+        $scope.player1Counter = $sessionStorage.player1Counter;
+        $scope.player2Counter = $sessionStorage.player2Counter;
+
         $scope.start = function() {
             $sessionStorage.startwort = $scope.startwort; // save
             $scope.loading = true;

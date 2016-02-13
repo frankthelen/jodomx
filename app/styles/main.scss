@@ -102,6 +102,11 @@ div.counter {
     .player {
         padding: 8px;
         margin: 0;
+        white-space: nowrap;
+    }
+    .colon {
+        font-weight: bold;
+        margin-left: 5px;
     }
     .player1 {
         background-color: $color-player1;
