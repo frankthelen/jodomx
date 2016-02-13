@@ -1,0 +1,47 @@
+<div>
+
+    <div class="counter">
+        <span class="player player1">
+            <small>{{player1}}</small>
+            <big>{{player1Counter}}</big>
+        </span>
+        <span>:</span>
+        <span class="player player2">
+            <big>{{player2Counter}}</big>
+            <small>{{player2}}</small>
+        </span>
+    </div>
+
+    <p>
+        <span class="current-player">{{player}}</span>, du bist dran.
+        Nenne ein verwandtes Wort zu <em>{{startwort}}</em>...
+    </p>
+
+    <form class="form-horizontal" name="myForm" novalidate>
+        <div class="form-group" style="margin-bottom: 30px;">
+          <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+              <input type="text" class="form-control" id="wort" name="wort" ng-model="wort" required autofocus
+                 ng-class="{player1:player===player1,player2:player===player2}"
+              />
+          </div>
+        </div>
+        <div class="alert alert-danger" role="alert" ng-show="result===false">
+            <div>Das war leider falsch!</div>
+            <div>
+                Folgende Antworten wären möglich gewesen:
+                <span ng-repeat="w in synonyms track by $index">{{w}}<span ng-if="! $last">,</span> </span>
+            </div>
+        </div>
+        <div class="alert alert-info" role="alert" ng-show="used.length">
+            <div>
+                Bereits genannt:
+                <span ng-repeat="w in used track by $index">{{w}}<span ng-if="! $last">,</span> </span>
+            </div>
+        </div>
+        <div class="text-right section">
+            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid" ng-click="play()" ng-show="result===undefined||result===true">Weiter</button>
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="replay()" ng-show="result===false">Nächste Runde</button>
+        </div>
+    </form>
+
+</div>

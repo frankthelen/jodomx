@@ -1,0 +1,27 @@
+<div>
+
+    <p>
+        Finde möglichst viele verwandte Wörter (Synonyme) zu einem vorgegebenen Wort.
+        Aber Vorsicht, nennst du ein falsches oder bereits genanntes Wort, gewinnt dein Gegner!
+        Pro richtig genanntem Begriff bekommst du 10 Punkte.
+    </p>
+
+    <form class="form-horizontal" name="myForm" novalidate>
+        <div class="form-group">
+          <label for="player1" class="col-sm-4 control-label">Spieler 1</label>
+          <div class="col-sm-8 col-md-5">
+              <input type="text" class="form-control player1" id="player1" name="player1" ng-model="player1" required placeholder="Name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="player2" class="col-sm-4 control-label">Spieler 2</label>
+          <div class="col-sm-8 col-md-5">
+              <input type="text" class="form-control player2" id="player2" name="player2" ng-model="player2" required placeholder="Name" />
+          </div>
+        </div>
+        <div class="text-right section">
+            <button type="submit" class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid" ng-click="start()">Start</button>
+        </div>
+    </form>
+
+</div>
