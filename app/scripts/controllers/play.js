@@ -7,8 +7,9 @@
  * Controller of the johannaApp
  */
 angular.module("johannaApp")
-    .controller("PlayCtrl", ["$scope", "$rootScope", "$location", "$sessionStorage", "OpenThesaurus",
-        function ($scope, $rootScope, $location, $sessionStorage, OpenThesaurus) {
+    .controller("PlayCtrl",
+        ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
+        function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
 
         $scope.player1 = $sessionStorage.player1;
         $scope.player2 = $sessionStorage.player2;
@@ -24,7 +25,7 @@ angular.module("johannaApp")
         $scope.player2Counter = $sessionStorage.player2Counter;
 
         $scope.play = function() {
-            OpenThesaurus.getSynonyms($scope.startwort, $scope.used).then(
+            OpenThesaurus.getSynonyms($scope.startwort).then(
                 function successCallback(synonyms) {
                     $scope.synonyms = synonyms;
                     if ($scope.synonyms.indexOf($scope.wort) >= 0 && $scope.used.indexOf($scope.wort) < 0) {
@@ -41,8 +42,9 @@ angular.module("johannaApp")
                     } else {
                         $scope.result = false;
                     }
-                }, function errorCallback(/* response */) {
-                    // handle error
+                }, function errorCallback(error) {
+                    $log.error(error);
+                    // TODO: handle error
                 }
             );
         };

@@ -7,7 +7,9 @@
  * Controller of the johannaApp
  */
 angular.module("johannaApp")
-    .controller("StartCtrl", ["$scope", "$rootScope", "$location", "$sessionStorage", function ($scope, $rootScope, $location, $sessionStorage) {
+    .controller("StartCtrl",
+        ["$scope", "$rootScope", "$location", "$sessionStorage",
+        function($scope, $rootScope, $location, $sessionStorage) {
 
         $scope.player1 = $sessionStorage.player1;
         $scope.player2 = $sessionStorage.player2;

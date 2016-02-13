@@ -9,24 +9,19 @@
 angular.module("johannaApp")
     .service("OpenThesaurus", ["$http", "$q", function($http, $q) {
 
-        this.getSynonyms = function(wort, exclude) {
-
-            exclude = exclude || [];
+        this.getSynonyms = function(wort) {
 
             var deferred = $q.defer();
 
             $http({
-                method: 'JSONP',
+                method: "JSONP",
                 url: "http://www.openthesaurus.de/synonyme/search?q=" + wort + "&format=application/json&mode=all&callback=JSON_CALLBACK"
             }).then(
                 function successCallback(response) {
                 var synonyms = [];
                 response.data.synsets.forEach(function(synset) {
                     synset.terms.forEach(function(term) {
-                        var t = term.term;
-                        if (exclude.indexOf(t) < 0) {
-                            synonyms.push(t);
-                        }
+                        synonyms.push(term.term);
                     });
                 });
                 deferred.resolve(synonyms);

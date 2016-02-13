@@ -8,31 +8,34 @@
  */
 angular.module("johannaApp")
     .controller("StartWortCtrl",
-        ["$scope", "$rootScope", "$location", "$sessionStorage", "OpenThesaurus",
-        function ($scope, $rootScope, $location, $sessionStorage, OpenThesaurus) {
+        ["$scope", "$log", "$location", "$sessionStorage", "OpenThesaurus",
+        function($scope, $log, $location, $sessionStorage, OpenThesaurus) {
 
         $scope.player1 = $sessionStorage.player1;
         $scope.player2 = $sessionStorage.player2;
 
-        $scope.startwort = "";
+        $scope.startwort = ""; // reset
 
-        $scope.startplayer =
-            Math.random() < 0.5 ? $scope.player1 : $scope.player2;
+        $scope.startplayer = Math.random() < 0.5 ? $scope.player1 : $scope.player2;
 
         $sessionStorage.startplayer = $scope.startplayer;
 
         $scope.start = function() {
             $sessionStorage.startwort = $scope.startwort; // save
-            OpenThesaurus.getSynonyms($scope.startwort, [$scope.startwort]).then(
+            $scope.loading = true;
+            OpenThesaurus.getSynonyms($scope.startwort).then(
                 function successCallback(synonyms) {
+                    $scope.loading = false;
                     $scope.synonyms = synonyms;
                     if ($scope.synonyms.length < 5) {
                         $scope.error = "TOO-FEW-WORDS";
                     } else {
                         $location.path("/play");
                     }
-                }, function errorCallback(/* response */) {
-                    // handle error
+                }, function errorCallback(error) {
+                    $scope.loading = false;
+                    $log.error(error);
+                    // TODO: handle error
                 }
             );
         };

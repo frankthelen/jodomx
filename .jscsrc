@@ -2,4 +2,9 @@
   "requireCamelCaseOrUpperCaseIdentifiers": true,
   "requireCapitalizedConstructors": true,
   "requireParenthesesAroundIIFE": true,
+  "validateQuoteMarks": "\"",
+  "validateIndentation": false,
+  "requirePaddingNewLinesAfterBlocks": false,
+  "requirePaddingNewLinesBeforeLineComments": false,
+  "requireTrailingComma": false
 }

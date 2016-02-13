@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc overview
@@ -9,27 +9,27 @@
  * Main module of the application.
  */
 angular
-  .module('johannaApp', [
-    'ngAnimate',
-    'ngRoute',
-    'ngTouch',
+  .module("johannaApp", [
+    "ngAnimate",
+    "ngRoute",
+    "ngTouch",
     "ngStorage",
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
-      .when('/start', {
-        templateUrl: 'views/start.html',
-        controller: 'StartCtrl'
+      .when("/start", {
+        templateUrl: "views/start.html",
+        controller: "StartCtrl"
       })
-      .when('/startwort', {
-        templateUrl: 'views/startwort.html',
-        controller: 'StartWortCtrl'
+      .when("/startwort", {
+        templateUrl: "views/startwort.html",
+        controller: "StartWortCtrl"
       })
-      .when('/play', {
-        templateUrl: 'views/play.html',
-        controller: 'PlayCtrl'
+      .when("/play", {
+        templateUrl: "views/play.html",
+        controller: "PlayCtrl"
       })
       .otherwise({
-        redirectTo: '/start'
+        redirectTo: "/start"
       });
   });
